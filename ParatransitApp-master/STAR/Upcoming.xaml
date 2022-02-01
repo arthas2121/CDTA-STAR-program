@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="UPCOMING TRIPS"
+             x:Class="STAR.Upcoming">
+
+    
+        <ListView  ItemsSource="{Binding Tripinfo}" HasUnevenRows="true" x:Name="Triplistview"  >
+           
+            <ListView.Footer>
+                <ContentView Padding="0,5" BackgroundColor="White">
+                    <Label FontSize="Large" TextColor="Purple"  FontAttributes="Bold"
+                   Text="End of List" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </ContentView>
+            </ListView.Footer>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell  >
+
+
+                        <Frame BorderColor="Black" CornerRadius="10"   Padding="0"     BackgroundColor="LightGreen"   HasShadow="False"   Margin="5,10,5,10">
+
+
+                            <StackLayout  BackgroundColor="LightGreen" Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10, 5, 10, 5" >
+
+
+                                <Grid RowSpacing="0" ColumnSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+
+                                    </Grid.RowDefinitions>
+
+                                    <Frame Grid.Row="0" CornerRadius="5" Margin="10, 5, 10, 5" BackgroundColor="LightSeaGreen">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Label Grid.Row="0"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="Pick up Address:"
+                                                   TextColor="Black"
+                                                   FontSize="28"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="1"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="{Binding Pickupaddress}"
+                                                   TextColor="White"
+                                                   FontSize="24"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="2"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="Destination:"
+                                                   TextColor="Black"
+                                                   FontSize="28"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="3"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="{Binding Destination}"
+                                                   TextColor="White"
+                                                   FontSize="24"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="4"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="Date and Time:"
+                                                   TextColor="Black"
+                                                   FontSize="28"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="5"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="{Binding PickupTime}"
+                                                   TextColor="White"
+                                                   FontSize="24"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Label Grid.Row="6"
+                                                   Margin="0, 0, 0, 0"
+                                                   Text="{Binding TripID}"
+                                                   TextColor="White"
+                                                   FontSize="14"
+                                                   HorizontalTextAlignment="End"
+                                                   VerticalTextAlignment="End"/>
+                                        </Grid>
+                                    </Frame>
+
+                                    <Button Grid.Row="1"
+                                            BackgroundColor="SeaGreen"
+                                            Text="Cancel"
+                                            TextColor="white"
+                                            FontSize="24"
+                                            CornerRadius="10"
+                                            Margin="10, 5, 10, 5"
+                                            Clicked="OnReClicked"/>
+                                </Grid>
+
+
+                            
+                            
+                                                    
+                            </StackLayout>
+                            
+                            
+                        </Frame>
+  
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+</ContentPage>

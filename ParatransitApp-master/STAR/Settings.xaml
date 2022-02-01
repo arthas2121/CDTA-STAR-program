@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="SETTINGS"
+             x:Class="STAR.Settings">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Frame Style="{StaticResource InfoFrame}">
+                    <Label  Style="{StaticResource InfoText}"
+                        Text="Your Profile Information"/>
+                </Frame>
+
+                <Frame>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label  Grid.Row="0"            Grid.Column="0"   
+                                Style="{StaticResource InfoText}"
+                                VerticalTextAlignment="Center"
+                                FontSize="16"                       Text="Full Name:"
+                                HorizontalOptions="Start"           HorizontalTextAlignment="Start"/>
+
+                        <Label  Grid.Row="0"    Grid.Column="1"     WidthRequest="250"
+                                x:Name="Display_Name"
+                                Style="{StaticResource ProfileNameLabel}"
+                                HorizontalTextAlignment="Center"    HorizontalOptions="Start"/>
+
+
+                        <Label  Grid.Row="1"             Grid.Column="0"   
+                                Style="{StaticResource InfoText}"
+                                VerticalTextAlignment="Center"
+                                FontSize="16"                       Text="STAR ID:"
+                                HorizontalOptions="Start"           HorizontalTextAlignment="Start"/>
+
+                        <Label Grid.Row="1"                        Grid.Column="1"
+                                x:Name="Display_ID"                 WidthRequest="250"
+                                Style="{StaticResource IDLabel}"
+                                HorizontalTextAlignment="Center"    HorizontalOptions="Start"/>
+
+
+
+
+                    </Grid>
+                </Frame>
+                <Button BackgroundColor="SeaGreen" 
+                        Text="Change Personal Information"      TextColor="White" FontAttributes="Bold"
+                        FontSize="18"
+                        CornerRadius="20"   Margin="50, 20,30, 10"
+                        HeightRequest="60"
+                        Clicked="ChangeInformation"/>
+
+                <Button BackgroundColor="OrangeRed" 
+                        Text="Log out"      TextColor="White" FontAttributes="Bold"
+                        FontSize="24"
+                        CornerRadius="20"   Margin="50, 20,30, 10"
+                        HeightRequest="60"
+                        Clicked="OnLogoutClicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

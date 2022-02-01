@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:STAR"
+             mc:Ignorable="d"
+             x:Class="STAR.RepeatTripPage"
+             Title="Repeat The TRIP"
+             BackgroundColor="{StaticResource BackgroundColor}">
+
+
+    <ContentPage.Content>
+        <!--CurrAddress
+            DestAddress
+            DatePicked
+            TimePicked -->
+        <ScrollView>
+            <StackLayout>
+                <!-- Pickup address Entry-->
+                <Frame  Style="{StaticResource EntryFrame}" Margin="0,10,0,0">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" 
+                                Style="{StaticResource EntryLabel}"
+                                Text="- ENTER PICK UP ADDRESS -"
+                                FontSize="16"   TextColor="#4e5a65"
+                                HorizontalOptions="Center"/>
+
+                        <Entry Grid.Row="1" 
+                               x:Name="CurrAddress"
+                               IsTextPredictionEnabled="True"
+                               HorizontalTextAlignment="Start"
+                               Text="{Binding Tripinfo.PUAddress}"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Pick Up Time -->
+                <Frame  Style="{StaticResource EntryFrame}">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label      Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                    Text="Pick Up Time"/>
+
+                        <Label      Grid.Row="1"                 
+                                    HorizontalOptions="StartAndExpand"
+                                    FontSize="16"                
+                                    Style="{StaticResource EntryLabel}"
+                                    Text="Date:"/>
+
+                        <DatePicker Grid.Row="1"           
+                                    x:Name="PickupDateSelector"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Format="D"              
+                                    TextColor="#009e9d"
+                                    FontAttributes="Bold"   
+                                    TranslationX="15"
+                                    Date="{Binding Tripinfo.PUDate}"/>
+
+                        <Label      Grid.Row="2"                 
+                                    Style="{StaticResource EntryLabel}"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Time:"                 
+                                    FontSize="16"/>
+
+                        <TimePicker Grid.Row="2"            
+                                    x:Name="PickupTimeSelector"
+                                    Format="t"
+                                    HorizontalOptions="CenterAndExpand"
+                                    TextColor="#009e9d"
+                                    FontAttributes="Bold"   
+                                    TranslationX="15"
+                                    Time="{Binding Tripinfo.PUTime}"/>
+                    </Grid>
+                </Frame>
+
+                <!-- dropoff address Entry-->
+                <Frame  Style="{StaticResource EntryFrame}">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Destination:"/>
+
+                        <Entry Grid.Row="1" x:Name="DestAddress"
+                               HorizontalTextAlignment="Start"
+                               Text="{Binding Tripinfo.DOAddress}"/>
+                    </Grid>
+                </Frame>
+
+
+                <!-- Return address Entry-->
+                <Frame  Style="{StaticResource EntryFrame}">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Return (If Applicable):"/>
+
+                        <CheckBox   Grid.Row="0"
+                                    HorizontalOptions="End"     
+                                    Margin="0,0,20,0"       Scale="1.5"
+                                    x:Name="ReturnNeed"
+                                    IsChecked="{Binding Tripinfo.Return}"/>
+
+                        <Label      Grid.Row="1"
+                                    Style="{StaticResource EntryLabel}" 
+                                    FontAttributes="None"
+                                    FontSize="16"
+                                    Margin="0,3,0,0"    TextColor="#4e5a65"
+                                    Text="Return Address same as Pick Up"
+                                    HorizontalOptions="Start"
+                                    IsVisible="False">
+                            <Label.Triggers>
+                                <DataTrigger
+                                            TargetType="Label"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <CheckBox   Grid.Row="1"      
+                                    HorizontalOptions="End"     
+                                    Margin="0,0,20,0"       Scale="1.5"
+                                    x:Name="SameReturn"
+                                    IsChecked="False"
+                                    IsVisible="False">
+                            <CheckBox.Triggers>
+                                <DataTrigger
+                                            TargetType="CheckBox"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </CheckBox.Triggers>
+                        </CheckBox>
+
+                        <Label      Grid.Row="2" 
+                                    Style="{StaticResource EntryLabel}"
+                                    Text="- OR ENTER ADDRESS BELOW -"
+                                    HorizontalOptions="Center"
+                                    FontSize="16"   TextColor="#4e5a65"
+                                    IsVisible="False">
+                            <Label.Triggers>
+                                <DataTrigger
+                                            TargetType="Label"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <Entry      Grid.Row="3" x:Name="ReturnAddress"
+                                    HorizontalTextAlignment="Start"
+                                    IsVisible="False"
+                                    Text="{Binding Tripinfo.ReturnAddress}">
+                            <Entry.Triggers>
+                                <DataTrigger
+                                            TargetType="Entry"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
+
+                        <Label      Grid.Row="4"                 
+                                    HorizontalOptions="StartAndExpand"
+                                    FontSize="16"                
+                                    Style="{StaticResource EntryLabel}"
+                                    Text="Date:"
+                                    IsVisible="False">
+                            <Label.Triggers>
+                                <DataTrigger
+                                            TargetType="Label"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <DatePicker Grid.Row="4"           
+                                    x:Name="ReturnDatePicked"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Format="D"              
+                                    TextColor="#009e9d"
+                                    FontAttributes="Bold"   
+                                    TranslationX="15"
+                                    IsVisible="False"
+                                    Date="{Binding Tripinfo.ReturnDate}">
+                            <DatePicker.Triggers>
+                                <DataTrigger
+                                            TargetType="DatePicker"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </DatePicker.Triggers>
+                        </DatePicker>
+
+                        <Label      Grid.Row="5"                 
+                                    Style="{StaticResource EntryLabel}"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Time:"                 
+                                    FontSize="16"
+                                    IsVisible="False">
+                            <Label.Triggers>
+                                <DataTrigger
+                                            TargetType="Label"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+
+                        <TimePicker Grid.Row="5"            
+                                    x:Name="ReturnTimePicked"           
+                                    HorizontalOptions="CenterAndExpand"
+                                    Format="hh:mm tt"
+                                    TextColor="#009e9d"
+                                    FontAttributes="Bold"   
+                                    TranslationX="15"
+                                    IsVisible="False"
+                                    Time="{Binding Tripinfo.ReturnTime}">
+                            <TimePicker.Triggers>
+                                <DataTrigger
+                                            TargetType="TimePicker"
+                                            Binding="{Binding Source={x:Reference ReturnNeed}, Path=IsChecked}"
+                                            Value="True">
+                                    <Setter Property="IsVisible"
+                                            Value="True"/>
+                                </DataTrigger>
+                            </TimePicker.Triggers>
+                        </TimePicker>
+
+                    </Grid>
+                </Frame>
+
+                <!-- PCA information -->
+                <Frame Style="{StaticResource EntryFrame}">
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label      Grid.Row="0"
+                                    Style="{StaticResource EntryLabel}"
+                                    Text="Will there be a PCA with you?
+                                    (Personal Care Assitant)"   
+                                    Margin="0,0,0,10" />
+
+                        <Label      Grid.Row="1"
+                                    Style="{StaticResource EntryLabel}"
+                                    FontAttributes="Bold"
+                                    FontSize="20"               Margin="60,0,0,0"
+                                    Text="No"                  TextColor="#4e5a65"
+                                    HorizontalOptions="Start"/>
+
+                        <Switch     Grid.Row="1"
+                                    HorizontalOptions="CenterAndExpand"
+                                    x:Name="PCA"
+                                    IsToggled="{Binding Tripinfo.PCA}"
+                                    OnColor="Gold"  ThumbColor="SeaGreen"/>
+                        <!-- Toggled="PCASwitch"/> -->
+
+                        <Label      Grid.Row="1"
+                                    Style="{StaticResource EntryLabel}"
+                                    FontAttributes="Bold"
+                                    FontSize="20"               Margin="0,0,60,0"
+                                    Text="Yes"                   TextColor="#4e5a65"
+                                    HorizontalOptions="End"/>
+
+                    </Grid>
+                </Frame>
+
+                <!-- Payment information Entry -->
+                <Frame Style="{StaticResource EntryFrame}">
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label      Grid.Row="0"    
+                                    Style="{StaticResource EntryLabel}"
+                                    Text="Method of Payment:"   Margin="0,0,0,10" />
+
+                        <Label      Grid.Row="1"
+                                    Style="{StaticResource EntryLabel}" 
+                                    FontAttributes="Bold"
+                                    FontSize="18"               Margin="15,0,0,0"
+                                    Text="Pay on Pick Up"        TextColor="#4e5a65"
+                                    HorizontalOptions="Start"/>
+
+                        <Switch     Grid.Row="1"
+                                    HorizontalOptions="CenterAndExpand"
+                                    x:Name="Ticket"
+                                    IsToggled="{Binding Tripinfo.Ticket}"
+                                    OnColor="Gold"  ThumbColor="SeaGreen"/>
+
+                        <Label      Grid.Row="1" 
+                                    Style="{StaticResource EntryLabel}" 
+                                    FontAttributes="Bold"
+                                    FontSize="18"               Margin="0,0,15,0"
+                                    Text="Stars Ticket"       TextColor="#4e5a65"
+                                    HorizontalOptions="End"/>
+
+                    </Grid>
+                </Frame>
+
+                <!-- Comment Section -->
+                <Frame Style="{StaticResource EntryFrame}">
+                    <Grid RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="Auto"/>
+                            <RowDefinition  Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0"     Style="{StaticResource EntryLabel}"
+                               Text="Additional Instructions (Optional)"/>
+                        <Entry Grid.Row="1"
+                               x:Name="Comments"
+                               HorizontalTextAlignment="Start"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Confirmation Button -->
+                <Button BackgroundColor="SeaGreen" 
+                        Text="Verify"      TextColor="Gold" FontAttributes="Bold"
+                        FontSize="24"
+                        CornerRadius="20"   Margin="50, 20,30, 10"
+                        HeightRequest="60"
+                        Clicked="OnConfirmedAsync"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

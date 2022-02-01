@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="TRIP HISTORY"
+             x:Class="STAR.TripHistory">
+
+    <StackLayout Margin="0,0,0,0" Orientation="Vertical" HorizontalOptions="FillAndExpand"  >
+        <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
+        <ListView  ItemsSource="{Binding Tripinfo}" HasUnevenRows="true" x:Name="Triplistview"  >
+
+            <ListView.Footer>
+                <ContentView Padding="0,5" BackgroundColor="White">
+                    <Label FontSize="Large" TextColor="Purple"  FontAttributes="Bold"
+                   Text="End of List" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </ContentView>
+            </ListView.Footer>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell  >
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnRepeat"
+                                      CommandParameter="{Binding .}"
+                                      Text="Repeat"   />
+                        </ViewCell.ContextActions>
+                        <Frame BorderColor="Black" CornerRadius="10"   Padding="0"     BackgroundColor="White"   HasShadow="True"   Margin="0,5,0,5">
+                            <StackLayout  BackgroundColor="White" Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10,10,10,10" >
+                                <Grid RowSpacing="0"    Padding="10" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label  Grid.Row="0" 
+                                            Style="{StaticResource InfoText}"
+                                            HorizontalOptions="FillAndExpand"
+                                            TextColor="DarkViolet"
+                                            Text="Pick up Address:"  >
+                                    </Label>
+
+                                    <!--Enter Data Here-->
+                                    <Label  Grid.Row="1"
+                                            Text="{Binding Pickupaddress}"
+                                            FontAttributes="Bold"  HorizontalOptions="FillAndExpand"  >
+                                    </Label>
+
+                                    <Label  Grid.Row="2"
+                                            Style="{StaticResource InfoText}"
+                                            HorizontalOptions="FillAndExpand"
+                                            TextColor="DarkViolet" 
+                                            Text="Destination:">
+                                    </Label>
+                                    <!--Enter Data Here-->
+                                    <Label  Grid.Row="3"
+                                            Text="{Binding Destination}"
+                                            FontAttributes="Bold" HorizontalOptions="FillAndExpand"  >
+                                    </Label>
+
+                                    <Label  Grid.Row="4"
+                                            Style="{StaticResource InfoText}"
+                                            HorizontalOptions="FillAndExpand"
+                                            TextColor="DarkViolet" 
+                                            Text="Date and Time:">
+                                    </Label>
+
+                                    <Label  Grid.Row="5"
+                                            FontAttributes="Bold"
+                                            Text="{Binding PickupTime}" HorizontalOptions="FillAndExpand"  >
+                                    </Label>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

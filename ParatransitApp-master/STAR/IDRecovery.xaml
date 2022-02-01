@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="STAR.IDRecovery">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Frame Style="{StaticResource InfoFrame}"
+                       HeightRequest="50">
+                    <Label Style="{StaticResource InfoText}" Text="Account Recovery"
+                           FontSize="25" VerticalTextAlignment="Center"
+                           TextColor="LightSeaGreen"/>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                        CornerRadius="5">
+                    <Entry  x:Name="RECOVERY_FIRSTNAME"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Placeholder="First Name"/>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                        CornerRadius="5">
+                    <Entry  x:Name="RECOVERY_LASTNAME"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Placeholder="Last Name"/>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                        CornerRadius="5">
+                    <Entry  x:Name="RECOVERY_EMAIL"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Placeholder="Email Address"/>
+                </Frame>
+
+                <Button BackgroundColor="LightSeaGreen" 
+                        Text="Find My ID"     
+                        TextColor="White"   FontAttributes="Bold"
+                        FontSize="20"
+                        CornerRadius="10"   Margin="10, 20, 10, 10"
+                        Clicked="OnRecoveryClicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

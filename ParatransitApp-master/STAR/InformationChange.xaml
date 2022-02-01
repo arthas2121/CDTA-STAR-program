@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAR.InformationChange">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Frame Style="{StaticResource InfoFrame}"
+                        HeightRequest="50">
+                    <Label Style="{StaticResource InfoText}" Text="Change Account Information"
+                                FontSize="25" VerticalTextAlignment="Center"
+                                TextColor="SeaGreen"/>
+                </Frame>
+
+
+                <Button BackgroundColor="SeaGreen" 
+                            Text="Change EmailAddress" TextColor="White" FontAttributes="Bold"
+                            FontSize="20"
+                            CornerRadius="10"   Margin="10, 30,10, 10"
+                            Clicked="ChangeEmailAddress"/>
+
+                <Button BackgroundColor="SeaGreen" 
+                            Text="Change Home Address" TextColor="White" FontAttributes="Bold"
+                            FontSize="20"
+                            CornerRadius="10"   Margin="10, 30,10, 10"
+                            Clicked="ChangeHomeAddress"/>
+
+                <Button BackgroundColor="SeaGreen" 
+                            Text="Change Contact Number" TextColor="White" FontAttributes="Bold"
+                            FontSize="20"
+                            CornerRadius="10"   Margin="10, 30,10, 10"
+                            Clicked="ChangeContactNumber"/>
+
+
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

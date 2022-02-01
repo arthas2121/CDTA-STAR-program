@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="STAR.Registration">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+
+                <Frame Style="{StaticResource InfoFrame}"
+                   HeightRequest="50">
+                    <Label Style="{StaticResource InfoText}" Text="Register An Account"
+                       FontSize="25" VerticalTextAlignment="Center"
+                       TextColor="SeaGreen"/>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Enter STAR ID:"/>
+
+                        <Entry  
+                            Grid.Row= "1"
+                            x:Name="REG_STARID"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"/>
+                    </Grid>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Enter First Name:"/>
+
+                        <Entry  
+                            Grid.Row="1"
+                            x:Name="REG_FIRSTNAME"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"/>
+                    </Grid>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Enter Last Name:"/>
+
+                        <Entry  
+                            Grid.Row="1"
+                            x:Name="REG_LASTNAME"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"/>
+                    </Grid>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Enter Email Address:"/>
+                        
+                    <Entry  
+                        Grid.Row="1"
+                        x:Name="REG_EMAIL"
+                        IsTextPredictionEnabled="True"
+                        HorizontalTextAlignment="Center"
+                        Margin="10"/>
+                    </Grid>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Style="{StaticResource EntryLabel}"
+                               Text="Select Date of Birth"/>
+
+                        <DatePicker Grid.Row="1" 
+                                    x:Name="REG_DOB"
+                                    Format="D"
+                                    VerticalOptions="FillAndExpand"
+                                    />
+                    </Grid>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Enter Phone Number:"/>
+                    <Entry  
+                        Grid.Row="1"
+                        x:Name="REG_PHONE"
+                        IsTextPredictionEnabled="True"
+                        HorizontalTextAlignment="Center"
+                        Margin="10"/>
+                    </Grid>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                    CornerRadius="5">
+                    <Grid RowSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0" Style="{StaticResource EntryLabel}"
+                                Text="Enter Home Address:"/>
+                    <Entry  
+                        Grid.Row="1"
+                        x:Name="REG_ADD"
+                        IsTextPredictionEnabled="True"
+                        HorizontalTextAlignment="Center"
+                        Margin="10"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Confirmation Button -->
+                <Button BackgroundColor="SeaGreen" 
+                        Text="Register Account" TextColor="White" FontAttributes="Bold"
+                        FontSize="20"
+                        CornerRadius="10"   Margin="10, 30,10, 10"
+                        Clicked="OnRegisterClicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

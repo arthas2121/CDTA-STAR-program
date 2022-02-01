@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:STAR"
+             NavigationPage.HasBackButton="False"
+             Title="Home"
+             x:Class="STAR.FrontPage"
+             BackgroundColor="#f2f2f2">
+
+    <ScrollView >
+
+        <StackLayout >
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <!-- 0 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 1 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 2 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 3 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 4 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 5 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 6 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 7 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 8 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 9 -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- 10 -->
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Profile Header -->
+                <Frame  Grid.Row="0"  Style="{StaticResource InfoFrame}">
+                    <Label Style="{StaticResource InfoText}"
+                           Text="Your Profile"/>
+                </Frame>
+                <!--Profile information-->
+                <Frame Grid.Row="1" HasShadow="False"    Margin="10" CornerRadius="5" BorderColor="#f0f0f0" >
+
+                    <Grid   Margin="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label  Grid.Column="0"      Grid.Row="0"
+                                x:Name="Display_FirstName"
+                                Style="{StaticResource ProfileNameLabel}"
+                                VerticalTextAlignment="Start"   HorizontalTextAlignment="Start"/>
+
+                        <Label  Grid.Column="0"      Grid.Row="1"
+                                x:Name="Display_LastName"
+                                Style="{StaticResource ProfileNameLabel}"
+                                VerticalTextAlignment="Start"   HorizontalTextAlignment="Start"/>
+
+                        <Label  Grid.Column="0"     Grid.Row="2"
+                                x:Name="Display_ID"
+                                Style="{StaticResource IDLabel}"
+                                VerticalTextAlignment="Center"  HorizontalTextAlignment="Start"/>
+
+                        <Label Grid.Column="1"      Grid.Row="0"
+                               x:Name="label_upcoming"
+                               TextColor="ForestGreen"  FontAttributes="Bold"
+                               Style="{StaticResource IDLabel}"     Margin="0,0,0,0"
+                               VerticalTextAlignment="End"   HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Column="1"      Grid.Row="1"
+                               x:Name="label_pending"
+                               TextColor="#ffaa00"     FontAttributes="Bold"
+                               Style="{StaticResource IDLabel}"     Margin="0,0,0,0"
+                               VerticalTextAlignment="End"   HorizontalTextAlignment="End"/>
+
+                        <Label Grid.Column="1"      Grid.Row="2"
+                               x:Name="label_canceled"
+                               TextColor="#ff3434"    FontAttributes="Bold"
+                               Style="{StaticResource IDLabel}"     Margin="0,0,0,0"
+                               VerticalTextAlignment="End"   HorizontalTextAlignment="End"/>
+
+                    </Grid>
+                </Frame>
+
+                <!-- Button Grid Header -->
+                <Frame Grid.Row="2" Style="{StaticResource InfoFrame}">
+                    <Label Text="Trip Options" Style="{StaticResource InfoText}"
+                           FontFamily=""/>
+                </Frame>
+
+                <!-- Trip Options Grid -->
+                <Grid Grid.Row="3" RowSpacing="0" ColumnSpacing="0"     
+                      HorizontalOptions="CenterAndExpand" Margin="10,5,10,5"
+                      VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button  Text="New Trip"               Grid.Row="0"       
+                             BackgroundColor="ForestGreen"
+                             TextColor="White" FontAttributes="Bold"
+                             Style="{StaticResource TripButton}" 
+                             Clicked="OnNewClicked"/>
+                </Grid>
+
+                <!-- Button Header -->
+                <Frame Grid.Row="4"     Style="{StaticResource InfoFrame}">
+                    <Label Text="View" Style="{StaticResource InfoText}"/>
+                </Frame>
+
+                <Grid   Grid.Row="5" RowSpacing="0" ColumnSpacing="0"     
+                      HorizontalOptions="CenterAndExpand"
+                      VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button  Text="Pending"       Grid.Row="0"   
+                             Style="{StaticResource TripButton}" 
+                             BackgroundColor="#ffaa00"
+                             Clicked="OnPendingClicked"/>
+                </Grid>
+                <Grid   Grid.Row="6" RowSpacing="0" ColumnSpacing="0"     
+                      HorizontalOptions="CenterAndExpand" Margin="10,5,10,5"
+                      VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition   Width="*"/>
+                        <ColumnDefinition   Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button  Text="Denied"            Grid.Row="0"        Grid.Column="0"     
+                             Style="{StaticResource TripButton}"
+                             BackgroundColor="#ff3434" 
+                             Clicked="OnDeniedClicked"/>
+                    <Button  Text="Upcoming"            Grid.Row="0"        Grid.Column="1"     
+                             Style="{StaticResource TripButton}"
+                             BackgroundColor="ForestGreen"
+                             Clicked="OnUpcomingClicked"/>
+                </Grid>
+
+                <!-- Button Header -->
+                <Frame Grid.Row="7"     Style="{StaticResource InfoFrame}">
+                    <Label Text="History" Style="{StaticResource InfoText}"/>
+                </Frame>
+
+                <Grid   Grid.Row="8" RowSpacing="0" ColumnSpacing="0"     
+                      HorizontalOptions="CenterAndExpand"   Margin="10,5,10,5"
+                      VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition   Width="*"/>
+                        <ColumnDefinition   Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button  Text="Completed"       Grid.Row="0"        Grid.Column="0"     
+                             Style="{StaticResource TripButton}" 
+                             BackgroundColor="ForestGreen"
+                             Clicked="OnCompletedClicked"/>
+                    <Button  Text="Cancel"            Grid.Row="0"        Grid.Column="1"     
+                             Style="{StaticResource TripButton}"    BackgroundColor="#ff3434"
+                             Clicked="OnCancelClicked"/>
+                </Grid>
+            </Grid>
+
+            <!-- Button Header -->
+                <Frame Grid.Row="9"     Style="{StaticResource InfoFrame }">
+                    <Label Text="Tools" Style="{StaticResource InfoText}"/>
+                </Frame>
+
+            <Grid   Grid.Row="10" RowSpacing="0" ColumnSpacing="0"     Margin="10,0,10,20"
+                      HorizontalOptions="CenterAndExpand"   
+                      VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition  Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition   Width="*"/>
+                </Grid.ColumnDefinitions>
+                    <Button  Text="Settings"           Grid.Row="0"
+                             Style="{StaticResource TripButton}"    BackgroundColor="#282828"
+                             Clicked="OnSettingsClicked"/>
+                </Grid>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,109 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controls\**" />
+    <Compile Remove="Model\**" />
+    <EmbeddedResource Remove="Controls\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="Controls\**" />
+    <None Remove="Model\**" />
+    <Compile Remove="STARAPI.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.2" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Client.SQLiteStore" Version="4.1.2" />
+    <PackageReference Include="SendGrid" Version="9.12.7" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="FrontPage.xaml.cs">
+      <DependentUpon>FrontPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="NewTripPage.xaml.cs">
+      <DependentUpon>NewTripPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="InformationChange.xaml.cs">
+      <DependentUpon>InformationChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="PendingTripPage.xaml.cs">
+      <DependentUpon>PendingTripPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="TripHistory.xaml.cs">
+      <DependentUpon>TripHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Upcoming.xaml.cs">
+      <DependentUpon>Upcoming.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AddressChange.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CancelPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DeniedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EmailAddressChange.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="IDRecovery.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FrontPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewTripPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="InformationChange.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PendingTripPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PhoneNoChange.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Registration.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RepeatTripPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Settings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TripHistory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Upcoming.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:STAR"
+             x:Class="STAR.LoginPage">
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Frame Style="{StaticResource InfoFrame}"
+                       HeightRequest="50">
+                    <Label Style="{StaticResource InfoText}" Text="Login"
+                           FontSize="25" VerticalTextAlignment="Center"
+                           TextColor="LightSeaGreen"/>
+                </Frame>
+                
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                        CornerRadius="5">
+                    <Entry  x:Name="LOGIN_STARID"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Placeholder="STAR ID"/>
+                </Frame>
+
+                <Frame  Style="{StaticResource EntryFrame}" Margin="10,0,10,0"
+                        CornerRadius="5">
+                    <Entry  x:Name="LOGIN_LASTNAME"
+                            IsTextPredictionEnabled="True"
+                            HorizontalTextAlignment="Center"
+                            Margin="10"
+                            Placeholder="Last Name"/>
+                </Frame>
+
+                <!-- Confirmation Button -->
+                <Button BackgroundColor="LightSeaGreen" 
+                        Text="Login"      TextColor="White" FontAttributes="Bold"
+                        CornerRadius="10"   Margin="10, 20,10, 10"
+                        FontSize="20"
+                        Clicked="OnLoginClicked"/>
+
+                <Frame  Style="{StaticResource InfoFrame}"
+                        HeightRequest="50" Margin="1,30,1,0">
+                    <Label Style="{StaticResource InfoText}" 
+                           Text="No Account?"
+                           FontSize="22"    VerticalTextAlignment="Center"
+                           TextColor="SeaGreen"/>
+                </Frame>
+
+                <Button BackgroundColor="SeaGreen" 
+                        Text="Create New Account"     
+                        TextColor="White"   FontAttributes="Bold"
+                        FontSize="20"
+                        CornerRadius="10"   Margin="10, 20, 10, 10"
+                        Clicked="OnCreateClicked"/>
+
+                <Frame  Style="{StaticResource InfoFrame}"
+                        HeightRequest="50" Margin="1,30,1,0">
+                    <Label Style="{StaticResource InfoText}" 
+                           Text="Forgot ID?"
+                           FontSize="22"    VerticalTextAlignment="Center"
+                           TextColor="DarkOrange"/>
+                </Frame>
+
+                <Button BackgroundColor="OrangeRed" 
+                        Text="ID Recovery"     
+                        TextColor="White"   FontAttributes="Bold"
+                        FontSize="20"
+                        CornerRadius="10"   Margin="10, 20, 10, 10"
+                        Clicked="OnRecoveryClicked"/>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>
