@@ -70,7 +70,7 @@ namespace STAR
 
         bool exist(string ID)
         {
-            string connectionString = "Data Source = beenotified.database.windows.net; Initial Catalog = ParatransitDB; Persist Security Info = True; User ID = BeeNotifiedTeam; Password = iCEN450!";
+            string connectionString = "Data Source = beenotified.database.windows.net; Initial Catalog = ParatransitDB; Persist Security Info = True; User ID = ****; Password = ***
             string queryString = "SELECT TripID FROM dbo.TripInfo";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
